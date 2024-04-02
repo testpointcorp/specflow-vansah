@@ -8,21 +8,31 @@ namespace SpecFlowCalculator.Specs.Steps
     {
         private readonly Calculator _calculator;
         private int _result;
+        
         private ScenarioContext _scenarioContext;
 
-        private string _testCaseKey;
-        private string _assetKey;
-        private string _vansahResult = "passed";
+        private String _testCaseKey;
+        private String _assetKey;
+        private Boolean isIssueKey;
+        private String _vansahResult = "passed";
 
-        private static string _sprintName = "SM Sprint 1";
-        private static string _releaseName = "Release 24";
-        private static string _environmentName = "SYS";
+        private static String _sprintName = "SM Sprint 1";
+        private static String _releaseName = "Release 24";
+        private static String _environmentName = "SYS";
 
-        [When("the Test Case key is (.*) And the Asset is (.*)")]
-        public void GetTestAssetDetails(string testCaseKey, string assetKey)
+        [When("the Test Case key is (.*) And the Issue Key is (.*)")]
+        public void GetTestIssueKeyDetails(String testCaseKey, String issueKey)
         {
             _testCaseKey = testCaseKey;
-            _assetKey = assetKey;
+            _assetKey = issueKey;
+            isIssueKey = true;
+        }
+        [When("the Test Case key is (.*) And the Test Folder ID is (.*)")]
+        public void GetTestFolderIDDetails(String testCaseKey, String testFolderID)
+        {
+            _testCaseKey = testCaseKey;
+            _assetKey = testFolderID;
+            isIssueKey = false;
         }
 
         [AfterScenario]
@@ -39,20 +49,28 @@ namespace SpecFlowCalculator.Specs.Steps
             }
         }
 
-        private void SendTestResultToVansah(string testCaseKey, string result)
+        private void SendTestResultToVansah(String testCaseKey, String result)
         {
             VansahNode vansah = new VansahNode();
 
             // Required
             vansah.SetVansahToken = Environment.GetEnvironmentVariable("VANSAH_TOKEN") ?? "No Value found!";
-            vansah.JiraIssueKey = _assetKey;
+            
 
             // Optional
             vansah.SprintName = _sprintName;
             vansah.release_Name = _releaseName;
             vansah.environment_Name = _environmentName;
-
-            vansah.AddQuickTestFromJiraIssue(testCaseKey, result);
+            if (isIssueKey)
+            {
+                vansah.JiraIssueKey = _assetKey;
+                vansah.AddQuickTestFromJiraIssue(testCaseKey, result);
+            }
+            else {
+                vansah.TestFolderID = _assetKey;
+                vansah.AddQuickTestFromTestFolders(testCaseKey, result);
+            }
+           
         }
 
         public CalculatorStepDefinitions(Calculator calculator, ScenarioContext scenarioContext)

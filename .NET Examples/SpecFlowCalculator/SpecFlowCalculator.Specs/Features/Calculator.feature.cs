@@ -120,7 +120,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("the two numbers are added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
- testRunner.When("the Test Case key is Test-C8 And the Asset is Test-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the Test Case key is Test-C8 And the Issue Key is Test-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
  testRunner.Then("the result should be 120", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -169,7 +169,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("the two numbers are subtracted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
- testRunner.When("the Test Case key is Test-C9 And the Asset is Test-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the Test Case key is Test-C9 And the Test Folder ID is b97fe80b-0b6a-11ee-8e52-56" +
+                        "58ef8eadd5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 17
  testRunner.Then("the result should be 28", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
