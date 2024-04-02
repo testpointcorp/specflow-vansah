@@ -4,4 +4,5 @@
 /.NET Examples/SpecFlowCalculator/SpecFlowCalculator/obj
 /.NET Examples/SpecFlowCalculator/SpecFlowCalculator/bin
 /.NET Examples/SpecFlowCalculator/SpecFlowCalculator.Specs/bin
-/.NET Examples/VansahBinding
+/VansahBinding/bin
+/VansahBinding/obj
