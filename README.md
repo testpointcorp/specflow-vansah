@@ -10,7 +10,7 @@ By following this setup, you can streamline your testing workflow, ensuring that
 - You need to Generate Vansah [`connect`](https://docs.vansah.com/docs-base/generate-a-vansah-api-token-from-jira-cloud/) token to authenticate with Vansah APIs.
 
 ## Setup
-- Download VansahBinding: [Clone/download](https://github.com/testpointcorp/specflow-vansah/tree/prod/VansahBinding) from GitHub.
+- Download Vansah Binding: [Clone/download](https://github.com/testpointcorp/specflow-vansah/tree/prod/VansahBinding) from GitHub.
 
 ## Configuration
 - Create/Update [specflow.json](/.NET%20Examples/SpecFlowCalculator/SpecFlowCalculator.Specs/specflow.json) into your Testing Project: Configure to recognize VansahBinding assembly.
