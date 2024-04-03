@@ -13,6 +13,7 @@ namespace VansahBinding
         private String _vansahResult = "passed";
         private ScenarioContext _scenarioContext;
 
+        //Provide your Test Run Properties here
         private static String _sprintName = "SM Sprint 1";
         private static String _releaseName = "Release 24";
         private static String _environmentName = "SYS";
@@ -54,13 +55,14 @@ namespace VansahBinding
         {
             VansahNode vansah = new VansahNode();
 
-            // Required
-            vansah.SetVansahToken = Environment.GetEnvironmentVariable("VANSAH_TOKEN") ?? "No Value found!";
+            // Required - Use Environment Variables
+            vansah.SetVansahToken = Environment.GetEnvironmentVariable("VANSAH_TOKEN") ?? "Provide your Vansah Connect Token here";
 
-            // Optional
-            vansah.SprintName = _sprintName;
-            vansah.release_Name = _releaseName;
-            vansah.environment_Name = _environmentName;
+            // Optional - Uncomment the below proeprties if required else leave them as comment
+            //vansah.SprintName = _sprintName;
+            //vansah.release_Name = _releaseName;
+            //vansah.environment_Name = _environmentName;
+
             if (isIssueKey)
             {
                 vansah.JiraIssueKey = _assetKey;
