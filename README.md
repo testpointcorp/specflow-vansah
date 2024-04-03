@@ -2,7 +2,7 @@
 
 This tutorial guides you through the process of integrating Specflow tests with Vansah Test Management for Jira to automatically send test case results. 
 
-By following this setup, you can streamline your testing workflow, ensuring that test outcomes are recorded directly in Vansah.
+By following this setup, you can streamline your testing workflow, ensuring that test outcomes are recorded directly in your Jira workspace.
 
 ## Prerequisites
 - SpecFlow project setup in Visual Studio.
