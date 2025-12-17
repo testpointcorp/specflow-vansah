@@ -30,11 +30,11 @@ namespace VansahBinding
             _assetKey = issueKey;
             isIssueKey = true;
         }
-        [When("the Test Case key is (.*) And the Test Folder ID is (.*)")]
-        public void GetTestFolderIDDetails(String testCaseKey, String testFolderID)
+        [When("the Test Case key is (.*) And the Test Folder Path is (.*)")]
+        public void GetTestFolderPathDetails(String testCaseKey, String testFolderPath)
         {
             _testCaseKey = testCaseKey;
-            _assetKey = testFolderID;
+            _assetKey = testFolderPath;
             isIssueKey = false;
         }
         [AfterScenario]
@@ -70,7 +70,7 @@ namespace VansahBinding
             }
             else
             {
-                vansah.TestFolderID = _assetKey;
+                vansah.TestFolderPath = _assetKey;
                 vansah.AddQuickTestFromTestFolders(testCaseKey, result);
             }
 
