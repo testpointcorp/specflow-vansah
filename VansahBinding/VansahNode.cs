@@ -80,12 +80,13 @@ namespace Vansah
 
         // Public and private properties and fields used for configuring test runs and logs:
         /// <summary>
-        /// Gets or sets the unique identifier for the test folder in Vansah. This is mandatory unless a JiraIssueKey is provided.
+        /// Gets or sets the folder path for the test folder in Vansah. This is mandatory unless a JiraIssueKey is provided.
+        /// The folder path should be in the format "FolderName/" or "ParentFolder/SubFolder/".
         /// </summary>
-        public string TestFolderID { get; set; }
+        public string TestFolderPath { get; set; }
 
         /// <summary>
-        /// Gets or sets the JIRA issue key associated with the test. This is mandatory unless TestFolderID is provided.
+        /// Gets or sets the JIRA issue key associated with the test. This is mandatory unless TestFolderPath is provided.
         /// </summary>
         public string JiraIssueKey { get; set; }
 
@@ -142,13 +143,13 @@ namespace Vansah
         private Dictionary<string, int> resultAsName = new Dictionary<string, int>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VansahNode"/> class with specific test folder and JIRA issue identifiers.
+        /// Initializes a new instance of the <see cref="VansahNode"/> class with specific test folder path and JIRA issue identifiers.
         /// </summary>
-        /// <param name="testFolders">The test folder identifier. Used to categorize tests within Vansah.</param>
+        /// <param name="testFolderPath">The test folder path. Used to categorize tests within Vansah. Format: "FolderName/" or "ParentFolder/SubFolder/".</param>
         /// <param name="jiraIssue">The JIRA issue key. Links the tests to a specific JIRA issue.</param>
-        public VansahNode(string testFolders, string jiraIssue)
+        public VansahNode(string testFolderPath, string jiraIssue)
         {
-            TestFolderID = testFolders;
+            TestFolderPath = testFolderPath;
             JiraIssueKey = jiraIssue;
             // Initialize test result mapping
             resultAsName.Add("NA", 0);
@@ -683,22 +684,22 @@ namespace Vansah
 
             return asset;
         }
-        //JsonObject - To Add TestFolder ID 
+        //JsonObject - To Add TestFolder Path 
         private JsonObject TestFolderAsset()
         {
 
             JsonObject asset = new();
-            if (TestFolderID != null)
+            if (TestFolderPath != null)
             {
-                if (TestFolderID.Length >= 2)
+                if (TestFolderPath.Length >= 1)
                 {
                     asset.Add("type", "folder");
-                    asset.Add("identifier", TestFolderID);
+                    asset.Add("folderPath", TestFolderPath);
                 }
             }
             else
             {
-                Console.WriteLine("Please Provide Valid TestFolder ID");
+                Console.WriteLine("Please Provide Valid TestFolder Path");
             }
 
 

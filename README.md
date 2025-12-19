@@ -78,8 +78,15 @@ source ~/.bashrc
 Use BDD statements to link scenarios with Vansah:
 ```gherkin
 When the Test Case key is Test-C8 And the Issue Key is Test-2
-When the Test Case key is Test-C9 And the Test Folder ID is b97fe80b-0b6a-11ee-8e52-5658ef8eadd5
+When the Test Case key is Test-C9 And the Test Folder Path is auth/
 ```
+
+### Folder Path Format
+The folder path should be in the format:
+- `FolderName/` - for a top-level folder
+- `ParentFolder/SubFolder/` - for nested folders
+
+Note: Always include a trailing slash `/` at the end of the folder path.
 ## Usage Examples
 View our Sample feature [file](/.NET%20Examples/SpecFlowCalculator/SpecFlowCalculator.Specs/Features/Calculator.feature)
 ```gherkin
@@ -98,7 +105,7 @@ Scenario: Subtract two numbers
 	Given the first number is 50
 	And the second number is 25
 	When the two numbers are subtracted
-	When the Test Case key is Test-C9 And the Test Folder ID is b97fe80b-0b6a-11ee-8e52-5658ef8eadd5
+	When the Test Case key is Test-C9 And the Test Folder Path is auth/
 	Then the result should be 25
 ```
 ## Execution
