@@ -11,12 +11,13 @@ namespace Vansah
         //--------------------------- ENDPOINTS -------------------------------------------------------------------------------
 
         // The API version to be used for requests. This ensures compatibility with the specific version of the Vansah API.
-        private static string api_Version = "v1";
+        private static string api_Version = "v2";
 
         /// <summary>
-        /// The default URL for the Vansah API. This URL is used unless another URL is specified via the SetVansahURL property.
+        /// The default URL for the Vansah API. This URL is used unless another URL is specified via the SetVansahURL property. 
+        /// Set the Vansah API base URL or Obtain your  Vansah Connect URL (https://help.vansah.com/en/articles/10407923-vansah-api-connect-url) from Vansah API Tokens 
         /// </summary>
-        private static string default_Vansah_URL = "https://prod.vansahnode.app";
+        private static string default_Vansah_URL = "https://prod.vansah.com";
 
         /// <summary>
         /// The actual URL used for the Vansah API requests. It defaults to the default_Vansah_URL but can be overridden using the SetVansahURL property.
@@ -24,7 +25,7 @@ namespace Vansah
         private static string vansah_URL = default_Vansah_URL;
 
         /// <summary>
-        /// Sets a custom URL for the Vansah API. If a null value is provided, it defaults back to the predefined URL ("https://prod.vansahnode.app").
+        /// Sets a custom URL for the Vansah API. If a null value is provided, it defaults back to the predefined URL ("https://prod.vansah.com").
         /// </summary>
         public string SetVansahURL
         {
